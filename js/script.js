@@ -1,32 +1,32 @@
 // Animation Timeline
 const animationTimeline = () => {
   // Spit chars that needs to be animated individually
-  const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
-  const hbd = document.getElementsByClassName("wish-hbd")[0];
+  const textBoxChars=document.getElementsByClassName("hbd-chatbox")[0];
+  const hbd=document.getElementsByClassName("wish-hbd")[0];
 
-  textBoxChars.innerHTML = `<span>${textBoxChars.innerHTML
+  textBoxChars.innerHTML=`<span>${textBoxChars.innerHTML
     .split("")
     .join("</span><span>")}</span`;
 
-  hbd.innerHTML = `<span>${hbd.innerHTML
+  hbd.innerHTML =`<span>${hbd.innerHTML
     .split("")
     .join("</span><span>")}</span`;
 
-  const ideaTextTrans = {
+  const ideaTextTrans={
     opacity: 0,
     y: -20,
     rotationX: 5,
     skewX: "15deg",
   };
 
-  const ideaTextTransLeave = {
+  const ideaTextTransLeave={
     opacity: 0,
     y: 20,
     rotationY: 5,
     skewX: "-15deg",
   };
 
-  const tl = new TimelineMax();
+  const tl=new TimelineMax();
 
   tl.to(".container", 0.1, {
     visibility: "visible",
@@ -269,7 +269,7 @@ const animationTimeline = () => {
   // tl.timeScale(2);
 
   // Restart Animation on click
-  const replyBtn = document.getElementById("replay");
+  const replyBtn=document.getElementById("replay");
   replyBtn.addEventListener("click", () => {
     tl.restart();
   });
@@ -278,14 +278,14 @@ const animationTimeline = () => {
 // Import the data to customize and insert them into page
 const fetchData = () => {
   fetch("customize.json")
-    .then(data => data.json())
-    .then(data => {
+    .then(data=>data.json())
+    .then(data=>{
       Object.keys(data).map(customData => {
         if (data[customData] !== "") {
           if (customData === "imagePath") {
             document
               .getElementById(customData)
-              .setAttribute("src", data[customData]);
+              .setAttribute("src",data[customData]);
           } else {
             document.getElementById(customData).innerText = data[customData];
           }
